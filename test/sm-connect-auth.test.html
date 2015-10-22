@@ -85,16 +85,25 @@
         });
 
         describe('error handling', function() {
-          it('should set error on login failure', function() {
-            component.$.ajax.fire('error', {
-              request: {
-                response: {
-                  error: 401
-                }
+          var mockError = {
+            request: {
+              response: {
+                error: 401
               }
-            });
+            }
+          };
 
+          it('should set error on login failure', function() {
+            component.$.ajax.fire('error', mockError);
             expect(component.error).to.equal(401);
+          });
+
+          it('should fire an error event', function() {
+            var listener = sinon.spy();
+            component.addEventListener('error', listener);
+            component.$.ajax.fire('error', mockError);
+
+            expect(listener.called).to.be.true;
           });
         });
 

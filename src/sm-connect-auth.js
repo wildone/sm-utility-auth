@@ -68,8 +68,14 @@ class SmConnectAuth {
     this.token = request.response.token;
   }
 
-  _handleError({ detail }) {
-    this._setError(detail.request.response.error);
+  _handleError(event) {
+    const code = event.detail.request.response.error;
+
+    this._setError(event.detail.request.response.error);
+
+    // Stop their event, we want to set our own
+    event.stopPropagation();
+    this.fire('error', { code });
   }
 }
 
