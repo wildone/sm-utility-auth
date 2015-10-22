@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sm-connect-auth</title>
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+
+    <!-- Import the element to test -->
+    <link rel="import" href="../sm-connect-auth.html">
+    <script src="./sm-connect-auth.fixtures.js"></script>
+  </head>
+  <body>
+    <test-fixture id="default">
+      <template>
+        <sm-connect-auth></sm-connect-auth>
+      </template>
+    </test-fixture>
+    <script>
+      describe('<sm-connect-auth>', function() {
+
+        var component,
+            componentFixtures;
+
+        componentFixtures = window.fixtures;
+
+        beforeEach(function() {
+          component = fixture('default');
+        });
+
+        it('is okay', function() {
+          expect(component).to.be.ok;
+        });
+
+        describe('login', function() {
+          it('build body request from properties email and password', function() {
+            var email = 'foo@bar.com',
+                password = 'mysecret';
+
+            component.email = email;
+            component.password = password;
+            expect(component._request).to.deep.equal({
+              email: email,
+              password: password
+            });
+          });
+
+          it('should update localStorage when token changes', function() {
+            component.token = 'foobar';
+            expect(window.localStorage.getItem('sm-token')).to.equal('foobar');
+          });
+
+          it('should compute url based on server', function() {
+            component._set_server('foobar');
+            expect(component._url).to.equal('foobar/login');
+          });
+
+          it('should call generateRequest on login', function() {
+            sinon.stub(component.$.ajax, 'generateRequest');
+            component.login();
+            expect(component.$.ajax.generateRequest.called).to.be.true;
+          });
+
+          it('on login success, set token', function() {
+            var fakeResponse = {
+              token: 'foo'
+            };
+
+            component.$.ajax.fire('response', { response: fakeResponse });
+
+            expect(component.token).to.equal('foo');
+          });
+        });
+
+        describe('authentication', function() {
+          it('should set authenticated to true when setting token', function() {
+            component.token = 'foobar';
+            expect(component.authenticated).to.be.true;
+
+            component.token = null;
+            expect(component.authenticated).to.be.false;
+          });
+        });
+
+        describe('error handling', function() {
+          it('should set error on login failure', function() {
+            component.$.ajax.fire('error', {
+              request: {
+                response: {
+                  error: 401
+                }
+              }
+            });
+
+            expect(component.error).to.equal(401);
+          });
+        });
+
+        describe('logout', function() {
+          it('should set token to null', function() {
+            component.token = 'foo';
+            component.logout();
+            expect(component.token).to.not.be.ok;
+          });
+
+          it('should remove the localStorage sm-token value', function() {
+            window.localStorage.setItem('sm-token', 'foo');
+            component.logout();
+            expect(window.localStorage.getItem('sm-token')).to.be.null;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

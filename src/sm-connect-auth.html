@@ -1,0 +1,17 @@
+<dom-module id="sm-connect-auth">
+  <template>
+    <iron-ajax
+        id="ajax"
+        method="POST"
+        loading="{{busy}}"
+        url="[[_url]]"
+        body="[[_request]]"
+        handle-as="json"
+        content-type="application/json"
+        on-response="_handleSuccess"
+        on-error="_handleError"
+        debounce-duration="300"></iron-ajax>
+    </iron-ajax>
+  </template>
+  <script src="./sm-connect-auth.js"></script>
+</dom-module>

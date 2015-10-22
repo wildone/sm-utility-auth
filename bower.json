@@ -1,0 +1,37 @@
+{
+  "name": "sm-connect-auth",
+  "description": "Element to log in / out of Simpla",
+  "version": "0.0.0",
+  "authors": [
+    "Simpla <admin@simpla.io>"
+  ],
+  "license": "MIT",
+  "main": "sm-connect-auth.html",
+  "keywords": [
+    "simpla",
+    "web component",
+    "polymer",
+    "auth"
+  ],
+  "ignore": [
+    "*",
+    "!src/**/*",
+    "!sm-connect-auth.html",
+    "!LICENSE"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.7.14",
+    "polymer": "^1.1.4",
+    "simpla": "git@github.com:simplaio/simpla.git",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.6"
+  },
+  "devDependencies": {
+    "web-component-tester": "^3.3.22",
+    "test-fixture": "PolymerElements/test-fixture#~1.0.0"
+  },
+  "componentImports": [
+    "polymer/polymer.html",
+    "simpla/simpla.html",
+    "iron-ajax/iron-ajax.html"
+  ]
+}
