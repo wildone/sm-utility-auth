@@ -69,9 +69,9 @@ class SmConnectAuth {
   }
 
   _handleError(event) {
-    const code = event.detail.request.response.error;
+    const code = event.detail.request.status;
 
-    this._setError(event.detail.request.response.error);
+    this._setError(code);
 
     // Stop their event, we want to set our own
     event.stopPropagation();
