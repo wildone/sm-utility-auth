@@ -15,7 +15,8 @@ class SmConnectAuth {
       },
       token: {
         type: String,
-        observer: '_updateStorage'
+        observer: '_updateStorage',
+        notify: true
       },
       busy: {
         type: Boolean,
