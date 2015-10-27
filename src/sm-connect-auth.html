@@ -12,6 +12,14 @@
         on-error="_handleError"
         debounce-duration="300"></iron-ajax>
     </iron-ajax>
+
+    <!-- Shared data -->
+    <sm-helper-share type="auth" key="token" value="{{token}}"></sm-helper-share>
+    <sm-helper-share type="auth" key="email" value="{{email}}"></sm-helper-share>
+    <sm-helper-share type="auth" key="password" value="{{password}}"></sm-helper-share>
+    <sm-helper-share type="auth" key="error" value="{{error}}"></sm-helper-share>
+    <sm-helper-share type="auth" key="busy" value="{{busy}}"></sm-helper-share>
+    <sm-helper-share type="auth" key="_server" value="{{_server}}"></sm-helper-share>
   </template>
   <script src="./sm-connect-auth.js"></script>
 </dom-module>

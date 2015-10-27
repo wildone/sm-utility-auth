@@ -7,13 +7,11 @@ class SmConnectAuth {
       password: String,
       error: {
         type: Number,
-        notify: true,
-        readOnly: true
+        notify: true
       },
       authenticated: {
         type: Boolean,
-        notify: true,
-        readOnly: true
+        notify: true
       },
       token: {
         type: String,
@@ -23,14 +21,13 @@ class SmConnectAuth {
         type: Boolean,
         notify: true
       },
+      _server: {
+        type: String,
+        value: simpla.config.server
+      },
       _request: {
         computed: '_computeRequest(email, password)',
         value: () => {}
-      },
-      _server: {
-        type: String,
-        readOnly: true,
-        value: simpla.config.server
       },
       _url: {
         computed: '_computeUrl(_server)'
@@ -53,7 +50,7 @@ class SmConnectAuth {
       window.localStorage.removeItem('sm-token');
     }
 
-    this._setAuthenticated(!!token);
+    this.authenticated = !!token;
   }
 
   _computeRequest(email, password) {
@@ -71,7 +68,7 @@ class SmConnectAuth {
   _handleError(event) {
     const code = event.detail.request.status;
 
-    this._setError(code);
+    this.error = code;
 
     // Stop their event, we want to set our own
     event.stopPropagation();

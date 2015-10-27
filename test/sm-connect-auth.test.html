@@ -53,7 +53,7 @@
           });
 
           it('should compute url based on server', function() {
-            component._set_server('foobar');
+            component._server = 'foobar';
             expect(component._url).to.equal('foobar/login');
           });
 
@@ -106,16 +106,51 @@
         });
 
         describe('logout', function() {
-          it('should set token to null', function() {
+          beforeEach(function() {
             component.token = 'foo';
+          });
+
+          it('should set token to null', function() {
             component.logout();
             expect(component.token).to.not.be.ok;
           });
 
           it('should remove the localStorage sm-token value', function() {
-            window.localStorage.setItem('sm-token', 'foo');
             component.logout();
             expect(window.localStorage.getItem('sm-token')).to.be.null;
+          });
+        });
+
+        describe('shared state', function() {
+          var authA,
+              authB,
+              props = {
+                email: 'dummyEmail',
+                password: 'dummyPass',
+                error: 400,
+                authenticated: false,
+                token: 'dummyToken',
+                busy: true,
+                _server: 'dummyServer'
+              };
+
+          function shares(prop, value) {
+            authA[prop] = value;
+            return authB[prop] === value;
+          };
+
+          beforeEach(function() {
+            authA = fixture('default');
+            authB = fixture('default');
+          });
+
+          it('should share all necessary props', function() {
+            Object.keys(props).forEach(key => {
+              var value = props[key];
+
+              authA[key] = value;
+              expect(authB[key]).to.equal(value, 'Sharing ' + key + ' prop');
+            });
           });
         });
       });
