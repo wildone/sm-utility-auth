@@ -22,7 +22,7 @@
   "dependencies": {
     "webcomponentsjs": "^0.7.14",
     "polymer": "^1.1.4",
-    "simpla": "git@github.com:simplaio/simpla.git",
+    "simpla-core": "git@github.com:simplaio/simpla-core.git",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.6",
     "sm-helper-share": "git@github.com:simplaio/sm-helper-share.git"
   },
@@ -32,7 +32,7 @@
   },
   "componentImports": [
     "polymer/polymer.html",
-    "simpla/simpla.html",
+    "simpla-core/simpla-core.html",
     "iron-ajax/iron-ajax.html",
     "sm-helper-share/sm-helper-share.html"
   ]
