@@ -24,7 +24,7 @@
     "polymer": "^1.1.4",
     "simpla-core": "git@github.com:simplaio/simpla-core.git",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.6",
-    "sm-helper-share": "git@github.com:simplaio/sm-helper-share.git"
+    "sm-utility-share": "git@github.com:simplaio/sm-utility-share.git"
   },
   "devDependencies": {
     "web-component-tester": "^3.3.22",
@@ -34,6 +34,6 @@
     "polymer/polymer.html",
     "simpla-core/simpla-core.html",
     "iron-ajax/iron-ajax.html",
-    "sm-helper-share/sm-helper-share.html"
+    "sm-utility-share/sm-utility-share.html"
   ]
 }
