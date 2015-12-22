@@ -1,12 +1,12 @@
 {
-  "name": "sm-connect-auth",
+  "name": "sm-utility-auth",
   "description": "Element to log in / out of Simpla",
   "version": "0.0.0",
   "authors": [
     "Simpla <admin@simpla.io>"
   ],
   "license": "MIT",
-  "main": "sm-connect-auth.html",
+  "main": "sm-utility-auth.html",
   "keywords": [
     "simpla",
     "web component",
@@ -16,7 +16,7 @@
   "ignore": [
     "*",
     "!src/**/*",
-    "!sm-connect-auth.html",
+    "!sm-utility-auth.html",
     "!LICENSE"
   ],
   "dependencies": {

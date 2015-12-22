@@ -1,8 +1,8 @@
 {
-  "name": "sm-connect-auth",
+  "name": "sm-utility-auth",
   "version": "0.1.0",
   "description": "Element to log in / out of Simpla",
-  "main": "sm-connect-auth.html",
+  "main": "sm-utility-auth.html",
   "scripts": {
     "test": "gulp test:local"
   },
@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/simplaio/sm-connect-auth.git"
+    "url" : "https://github.com/simplaio/sm-utility-auth.git"
   },
   "bugs": {
-    "url" : "https://github.com/simplaio/sm-connect-auth/issues"
+    "url" : "https://github.com/simplaio/sm-utility-auth/issues"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.0",

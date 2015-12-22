@@ -1,6 +1,6 @@
-class SmConnectAuth {
+class SmUtilityAuth {
   beforeRegister() {
-    this.is = 'sm-connect-auth';
+    this.is = 'sm-utility-auth';
 
     this.properties = {
       email: String,
@@ -77,4 +77,4 @@ class SmConnectAuth {
   }
 }
 
-Polymer(SmConnectAuth);
+Polymer(SmUtilityAuth);

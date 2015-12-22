@@ -1,4 +1,4 @@
-# connect auth
+# Utility auth
 
 Element to log in / out of Simpla
 
