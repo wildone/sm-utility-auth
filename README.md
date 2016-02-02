@@ -15,4 +15,4 @@ MIT © [Simpla](admin@simpla.io)
 [bowerdeps-badge]: https://img.shields.io/gemnasium/simplaio/sm-utility-auth.svg
 [bowerdeps-url]: https://gemnasium.com/bower/sm-utility-auth
 [npmdevdeps-badge]: https://img.shields.io/david/dev/simplaio/sm-utility-auth.svg?theme=shields.io
-[npmdevdeps-url]: https://david-dm.org/dev/simplaio/sm-utility-auth#info=devDependencies
+[npmdevdeps-url]: https://david-dm.org/simplaio/sm-utility-auth#info=devDependencies
