@@ -22,9 +22,9 @@
   "dependencies": {
     "webcomponentsjs": "^0.7.14",
     "polymer": "^1.1.4",
-    "simpla-core": "git@github.com:simplaio/simpla-core.git",
+    "simpla-core": "https://github.com/simplaio/simpla-core.git",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.6",
-    "sm-utility-share": "git@github.com:simplaio/sm-utility-share.git"
+    "sm-utility-share": "https://github.com/simplaio/sm-utility-share.git"
   },
   "devDependencies": {
     "web-component-tester": "^3.3.22",
