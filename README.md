@@ -1,7 +1,7 @@
-# Utility auth
+# Utility Auth
 ![][bower-badge] [![][travis-badge]][travis-url] [![][bowerdeps-badge]][bowerdeps-url] [![][npmdevdeps-badge]][npmdevdeps-url]
 
-Element to log in / out of Simpla
+Element to log in and out of Simpla
 
 --
 
