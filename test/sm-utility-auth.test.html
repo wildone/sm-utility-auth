@@ -47,6 +47,15 @@
             });
           });
 
+          it('should include the token as a header, if it has one', function() {
+            var token = 'foo';
+
+            component.token = 'foo';
+            expect(component.$.ajax.headers).to.deep.equal({
+              Authorization: 'Bearer ' + token
+            });
+          });
+
           it('should update localStorage when token changes', function() {
             component.token = 'foobar';
             expect(window.localStorage.getItem('sm-token')).to.equal('foobar');

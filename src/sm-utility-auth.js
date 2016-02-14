@@ -75,6 +75,12 @@ class SmUtilityAuth {
     event.stopPropagation();
     this.fire('error', { code });
   }
+
+  _computeHeaders(token) {
+    if (token) {
+      return { Authorization: `Bearer ${token}` };
+    }
+  }
 }
 
 Polymer(SmUtilityAuth);

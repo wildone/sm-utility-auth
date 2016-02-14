@@ -10,6 +10,7 @@
         content-type="application/json"
         on-response="_handleSuccess"
         on-error="_handleError"
+        headers="[[_computeHeaders(token)]]"
         debounce-duration="300"></iron-ajax>
     </iron-ajax>
 
