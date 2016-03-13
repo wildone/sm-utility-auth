@@ -1,3 +1,8 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../simpla-core/simpla-core.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../sm-utility-share/sm-utility-share.html">
+
 <dom-module id="sm-utility-auth">
   <template>
     <iron-ajax
@@ -22,5 +27,5 @@
     <sm-utility-share type="auth" key="busy" value="{{busy}}"></sm-utility-share>
     <sm-utility-share type="auth" key="_server" value="{{_server}}"></sm-utility-share>
   </template>
-  <script src="./sm-utility-auth.js"></script>
+  <script src="./sm-utility-auth.js" inline></script>
 </dom-module>
