@@ -22,10 +22,7 @@ class SmUtilityAuth {
         type: Boolean,
         notify: true
       },
-      _server: {
-        type: String,
-        value: simpla.config.server
-      },
+      _server: String,
       _request: {
         computed: '_computeRequest(email, password)',
         value: () => {}
@@ -34,6 +31,10 @@ class SmUtilityAuth {
         computed: '_computeUrl(_server)'
       }
     }
+  }
+
+  ready() {
+    this._server = simpla.config.server;
   }
 
   login() {

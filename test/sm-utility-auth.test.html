@@ -7,10 +7,16 @@
     <script src="../../web-component-tester/browser.js"></script>
     <script src="../../test-fixture/test-fixture-mocha.js"></script>
     <link rel="import" href="../../test-fixture/test-fixture.html">
+    <link rel="import" href="../../polymer/polymer.html">
+
+    <script>
+      window.simpla = {
+        config: { server: 'bar' }
+      };
+    </script>
 
     <!-- Import the element to test -->
     <link rel="import" href="../sm-utility-auth.html">
-    <script src="./sm-utility-auth.fixtures.js"></script>
   </head>
   <body>
     <test-fixture id="default">
@@ -32,6 +38,14 @@
 
         it('is okay', function() {
           expect(component).to.be.ok;
+        });
+
+        describe('server config', function() {
+          it('should set server on ready', function() {
+            window.simpla = { config: { server: 'foo' } };
+            component = fixture('default');
+            expect(component._server).to.equal(window.simpla.config.server);
+          });
         });
 
         describe('login', function() {
